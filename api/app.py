@@ -2,7 +2,8 @@ import json
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import re
-
+import os, sys
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 from rag.retrieve import (
     retrieve,
     build_context,
@@ -12,6 +13,8 @@ from rag.retrieve import (
     client,
     COLLECTION
 )
+from dotenv import load_dotenv
+load_dotenv()
 
 app = FastAPI(title="SentinelRAG API", version="1.0")
 

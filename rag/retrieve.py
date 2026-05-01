@@ -2,12 +2,16 @@ from qdrant_client import QdrantClient
 from sentence_transformers import SentenceTransformer
 from qdrant_client.models import Filter, FieldCondition, MatchValue
 import google.generativeai as genai
-import time
-
+import time, os
+from dotenv import load_dotenv
+load_dotenv()
 # -------- CONFIG --------
 COLLECTION = "policies"
 
-genai.configure(api_key="AIzaSyCbwSBQ2nhY9-zV1Vx7r6ZXyurrrCOLfpc")
+if not os.getenv("GOOGLE_API_KEY"):
+    raise ValueError("Missing GOOGLE_API_KEY")
+
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 llm_model = genai.GenerativeModel("models/gemini-flash-lite-latest")
 
 embed_model = SentenceTransformer("all-MiniLM-L6-v2")

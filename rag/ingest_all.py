@@ -1,5 +1,7 @@
-import sys
-sys.path.append("./") 
+import os, sys
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.insert(0, REPO_ROOT)
+
 from rag.ingest import ingest
 
 def ingest_all():

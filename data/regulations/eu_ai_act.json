@@ -1,0 +1,19 @@
+[
+  {
+    "id": "EUAI-RISK-1",
+    "title": "High-risk AI systems",
+    "rules": [
+      "High-risk systems must include risk management processes",
+      "Human oversight must be ensured",
+      "Systems must be auditable and explainable"
+    ]
+  },
+  {
+    "id": "EUAI-TRANSPARENCY",
+    "title": "Transparency requirements",
+    "rules": [
+      "Users must be informed when interacting with AI",
+      "AI decisions affecting users must be explainable"
+    ]
+  }
+]

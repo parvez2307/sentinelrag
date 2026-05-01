@@ -1,0 +1,20 @@
+[
+  {
+    "id": "P-001",
+    "text": "Customer data may be stored indefinitely for analytics without user consent.",
+    "expected_violations": ["GDPR-ART-5", "GDPR-ART-6"],
+    "risk_level": "high"
+  },
+  {
+    "id": "P-002",
+    "text": "Loan approvals are fully automated and explanations are not provided to users.",
+    "expected_violations": ["GDPR-ART-22", "EUAI-TRANSPARENCY"],
+    "risk_level": "high"
+  },
+  {
+    "id": "P-003",
+    "text": "User data can be reused across departments for unspecified purposes.",
+    "expected_violations": ["GDPR-ART-5"],
+    "risk_level": "medium"
+  }
+]

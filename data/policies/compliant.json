@@ -1,0 +1,14 @@
+[
+  {
+    "id": "P-101",
+    "text": "Customer data is stored only for the duration necessary and requires explicit user consent.",
+    "expected_violations": [],
+    "risk_level": "low"
+  },
+  {
+    "id": "P-102",
+    "text": "All automated loan decisions include human review and provide explanations to users.",
+    "expected_violations": [],
+    "risk_level": "low"
+  }
+]

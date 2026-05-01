@@ -1,0 +1,50 @@
+[
+  {
+    "query": "fully automated loan decisions without explanation",
+    "policy_id": "P-004",
+    "expected": {
+      "confirmed_violations": ["GDPR-ART-22", "EUAI-TRANSPARENCY"],
+      "potential_risks": []
+    }
+  },
+  {
+    "query": "AI loan decisions without informing users",
+    "policy_id": "P-005",
+    "expected": {
+      "confirmed_violations": ["EUAI-TRANSPARENCY"],
+      "potential_risks": []
+    }
+  },
+  {
+    "query": "AI assists but human makes final decision with explanation",
+    "policy_id": "P-006",
+    "expected": {
+      "confirmed_violations": [],
+      "potential_risks": []
+    }
+  },
+  {
+    "query": "automated loan decisions explanation only on request",
+    "policy_id": "P-007",
+    "expected": {
+      "confirmed_violations": ["GDPR-ART-22"],
+      "potential_risks": []
+    }
+  },
+  {
+    "query": "AI used but human oversight unclear",
+    "policy_id": "P-008",
+    "expected": {
+      "confirmed_violations": [],
+      "potential_risks": ["GDPR-ART-22"]
+    }
+  },
+  {
+    "query": "data processed without consent or lawful basis",
+    "policy_id": "P-009",
+    "expected": {
+      "confirmed_violations": ["GDPR-ART-6"],
+      "potential_risks": []
+    }
+  }
+]

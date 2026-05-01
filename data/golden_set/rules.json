@@ -1,0 +1,17 @@
+[
+  {
+    "rule_id": "CONSENT_REQUIRED",
+    "description": "Any processing of personal data requires explicit consent",
+    "maps_to": ["GDPR-ART-6"]
+  },
+  {
+    "rule_id": "NO_INDEFINITE_STORAGE",
+    "description": "Data must not be stored indefinitely",
+    "maps_to": ["GDPR-ART-5"]
+  },
+  {
+    "rule_id": "EXPLAINABILITY_REQUIRED",
+    "description": "Decisions impacting users must be explainable",
+    "maps_to": ["GDPR-ART-22", "EUAI-TRANSPARENCY"]
+  }
+]

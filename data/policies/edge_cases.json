@@ -1,0 +1,14 @@
+[
+  {
+    "id": "P-201",
+    "text": "Customer data may be retained longer for fraud detection purposes.",
+    "expected_violations": ["POTENTIAL-GDPR-ART-5"],
+    "risk_level": "medium"
+  },
+  {
+    "id": "P-202",
+    "text": "Automated systems assist in loan decisions, but final approval is unclear.",
+    "expected_violations": ["POTENTIAL-GDPR-ART-22"],
+    "risk_level": "medium"
+  }
+]

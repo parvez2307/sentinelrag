@@ -1,0 +1,28 @@
+[
+  {
+    "id": "GDPR-ART-5",
+    "title": "Principles of data processing",
+    "rules": [
+      "Personal data must be processed lawfully, fairly, and transparently",
+      "Data must be collected for specified, explicit purposes",
+      "Data minimization must be enforced",
+      "Storage limitation: data should not be kept longer than necessary"
+    ]
+  },
+  {
+    "id": "GDPR-ART-6",
+    "title": "Lawfulness of processing",
+    "rules": [
+      "Processing requires explicit consent or lawful basis",
+      "Consent must be freely given, specific, informed"
+    ]
+  },
+  {
+    "id": "GDPR-ART-22",
+    "title": "Automated decision-making",
+    "rules": [
+      "Users have the right to not be subject to fully automated decisions",
+      "Decisions must be explainable when impacting individuals"
+    ]
+  }
+]

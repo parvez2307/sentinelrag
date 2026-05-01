@@ -1,0 +1,62 @@
+[
+  {
+    "id": "P-004",
+    "text": "Loan decisions are fully automated and no explanation is provided to applicants.",
+    "expected_violations": ["GDPR-ART-22", "EUAI-TRANSPARENCY"],
+    "risk_level": "high"
+  },
+  {
+    "id": "P-005",
+    "text": "Loan approval decisions are automated, and users are not informed that AI is being used.",
+    "expected_violations": ["EUAI-TRANSPARENCY"],
+    "risk_level": "high"
+  },
+  {
+    "id": "P-006",
+    "text": "AI models assist in credit scoring, but human reviewers make all final decisions with documented reasoning.",
+    "expected_violations": [],
+    "risk_level": "low"
+  },
+  {
+    "id": "P-007",
+    "text": "Loan approvals are automated, explanations are available only upon request, and no default explanation is provided.",
+    "expected_violations": ["GDPR-ART-22"],
+    "risk_level": "medium"
+  },
+  {
+    "id": "P-008",
+    "text": "AI is used to assess loan eligibility, but the role of human oversight is not defined in policy documents.",
+    "expected_violations": [],
+    "risk_level": "medium"
+  },
+  {
+    "id": "P-009",
+    "text": "Customer financial data is used for automated decisions without documenting lawful basis or obtaining explicit consent.",
+    "expected_violations": ["GDPR-ART-6"],
+    "risk_level": "high"
+  },
+  {
+    "id": "P-010",
+    "text": "AI systems recommend loan decisions, and users are clearly informed about AI usage and decision logic.",
+    "expected_violations": [],
+    "risk_level": "low"
+  },
+  {
+    "id": "P-011",
+    "text": "Loan approvals are automated, explanations are not provided, but users are informed that AI is being used.",
+    "expected_violations": ["GDPR-ART-22"],
+    "risk_level": "high"
+  },
+  {
+    "id": "P-012",
+    "text": "Automated decision systems are used without audit trails or explainability mechanisms.",
+    "expected_violations": ["EUAI-TRANSPARENCY"],
+    "risk_level": "high"
+  },
+  {
+    "id": "P-013",
+    "text": "AI assists loan decisions, but documentation does not specify whether explanations are generated or accessible.",
+    "expected_violations": [],
+    "risk_level": "medium"
+  }
+]

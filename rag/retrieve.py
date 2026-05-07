@@ -26,7 +26,7 @@ llm_model = genai.GenerativeModel(
 )
 
 # Persistent local DB
-client = QdrantClient(path="./qdrant_data")
+client =QdrantClient(":memory:")
 
 
 # -------- SAFE LLM CALL --------

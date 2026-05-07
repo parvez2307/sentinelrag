@@ -33,6 +33,22 @@ def embed_text(text):
 def load_json(path):
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
+    
+
+def recreate_collection():
+
+    existing = get_existing_collections()
+
+    if COLLECTION in existing:
+        client.delete_collection(COLLECTION)
+
+    client.create_collection(
+        collection_name=COLLECTION,
+        vectors_config=VectorParams(
+            size=3072,
+            distance=Distance.COSINE
+        ),
+    )
 
 
 def extract_text(item):

@@ -1,16 +1,32 @@
 import json
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+import google.generativeai as genai
+
 from qdrant_client import QdrantClient
-from sentence_transformers import SentenceTransformer
 from qdrant_client.models import VectorParams, Distance, PointStruct
 
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+
 # -------- CONFIG --------
+
 COLLECTION = "policies"
 
-# Init models
-embed_model = SentenceTransformer("all-MiniLM-L6-v2")
-
-# Qdrant local (persistent)
+# Use local persistent DB
 client = QdrantClient(path="./qdrant_data")
+
+
+# -------- EMBEDDING --------
+
+def embed_text(text):
+    response = genai.embed_content(
+        model="models/gemini-embedding-001",
+        content=text,
+        task_type="retrieval_document"
+    )
+    return response["embedding"]
 
 
 # -------- HELPERS --------
@@ -20,16 +36,10 @@ def load_json(path):
         return json.load(f)
 
 
-def embed(text):
-    return embed_model.encode(text).tolist()
-
-
 def extract_text(item):
-    # policies
     if "text" in item:
         return item["text"]
 
-    # regulations
     elif "rules" in item:
         return " ".join(item["rules"])
 
@@ -40,12 +50,19 @@ def get_existing_collections():
     return [c.name for c in client.get_collections().collections]
 
 
-def create_collection_if_not_exists(vector_size):
-    if COLLECTION not in get_existing_collections():
-        client.create_collection(
-            collection_name=COLLECTION,
-            vectors_config=VectorParams(size=vector_size, distance=Distance.COSINE),
-        )
+def recreate_collection():
+    existing = get_existing_collections()
+
+    if COLLECTION in existing:
+        client.delete_collection(COLLECTION)
+
+    client.create_collection(
+        collection_name=COLLECTION,
+        vectors_config=VectorParams(
+            size=3072,
+            distance=Distance.COSINE
+        ),
+    )
 
 
 # -------- INGEST --------
@@ -56,8 +73,10 @@ def ingest(file_path, start_id=0):
     points = []
 
     for idx, item in enumerate(data):
+
         text = extract_text(item)
-        vector = embed(text)
+
+        vector = embed_text(text)
 
         point = PointStruct(
             id=start_id + idx,
@@ -71,9 +90,10 @@ def ingest(file_path, start_id=0):
 
         points.append(point)
 
-    create_collection_if_not_exists(len(points[0].vector))
-
-    client.upsert(collection_name=COLLECTION, points=points)
+    client.upsert(
+        collection_name=COLLECTION,
+        points=points
+    )
 
     return len(points)
 
@@ -81,7 +101,11 @@ def ingest(file_path, start_id=0):
 # -------- MAIN --------
 
 if __name__ == "__main__":
+
     try:
+
+        recreate_collection()
+
         total = 0
 
         total += ingest("./data/policies/non_compliant.json", start_id=0)

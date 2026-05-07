@@ -15,8 +15,7 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 COLLECTION = "policies"
 
 # Use local persistent DB
-client = QdrantClient(path="./qdrant_data")
-
+client = QdrantClient(":memory:")
 
 # -------- EMBEDDING --------
 
